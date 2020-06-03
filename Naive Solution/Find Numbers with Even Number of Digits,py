@@ -1,0 +1,17 @@
+'''
+    Runtime: 
+        time: map, filter each takes O(n), n is the length of nums. list() takes O(m), m is the 
+        length of filtered nums. len() takes O(1). total is O(n+m)
+        space: list() takes O(m) spaces
+    Analysis: 
+        Given: a list of integers. 
+        Ask: return total number of integers that contain even number of digits. 
+        Input: nums = [12,345,2,6,7896]
+        Output: 2
+        To accomplish this: first convert int to str, then apply len() to each in the list
+        then filter out whose length is not even number by checking len(str(num)) % 2 == 0.
+        convert the iterator to a list and get the length
+'''
+class Solution:
+    def findNumbers(self, nums: List[int]) -> int:
+        return len(list(filter(lambda x: x%2 == 0, map(len, map(str, nums)))))
